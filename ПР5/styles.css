@@ -1,1 +1,296 @@
+/* Задача 2.1 и 2.2: Основная сетка с именованными областями */
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main ads"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    min-height: 100vh;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.header {
+    grid-area: header;
+    background: #2c3e50;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #34495e;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.main-content {
+    grid-area: main;
+    background: #ecf0f1;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.ads {
+    grid-area: ads;
+    background: #3498db;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.footer {
+    grid-area: footer;
+    background: #2c3e50;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* Задача 3.1: Вложенная Grid-сетка для галереи */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.gallery-item {
+    background: #3498db;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    min-height: 100px;
+}
+
+/* Задача 3.2: Grid для футера */
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.footer-section {
+    background: #1abc9c;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+/* Задача 4.1: Функции repeat(), minmax() и auto-fill */
+.auto-grid-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.auto-item {
+    background: #e74c3c;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    min-height: 100px;
+}
+
+/* Задача 4.2: Выравнивание и промежутки */
+.alignment-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.alignment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 150px);
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+    height: 400px;
+    margin-top: 1rem;
+}
+
+.align-item {
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+}
+
+.item-1 {
+    background: #9b59b6;
+    justify-self: start;
+    align-self: start;
+}
+
+.item-2 {
+    background: #f39c12;
+    justify-self: end;
+    align-self: start;
+}
+
+.item-3 {
+    background: #27ae60;
+    justify-self: start;
+    align-self: end;
+}
+
+.item-4 {
+    background: #e67e22;
+    justify-self: end;
+    align-self: end;
+}
+
+/* Задача 4.3: Адаптивный дизайн с Grid */
+.responsive-grid-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.responsive-item {
+    background: #16a085;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    min-height: 100px;
+}
+
+/* Задача 5.1: Эксперименты с grid-template */
+.experimental-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.experimental-grid {
+    display: grid;
+    grid-template: 
+        "areaA areaB areaB" 100px
+        "areaA areaC areaD" 100px
+        "areaE areaE areaF" 100px / 1fr 2fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.exp-item {
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exp-item:nth-child(1) { 
+    grid-area: areaA; 
+    background: #e74c3c; 
+}
+.exp-item:nth-child(2) { 
+    grid-area: areaB; 
+    background: #3498db; 
+}
+.exp-item:nth-child(3) { 
+    grid-area: areaC; 
+    background: #2ecc71; 
+}
+.exp-item:nth-child(4) { 
+    grid-area: areaD; 
+    background: #f39c12; 
+}
+.exp-item:nth-child(5) { 
+    grid-area: areaE; 
+    background: #9b59b6; 
+}
+.exp-item:nth-child(6) { 
+    grid-area: areaF; 
+    background: #1abc9c; 
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "main"
+            "ads"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .alignment-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 100px);
+    }
+    
+    .experimental-grid {
+        grid-template: 
+            "areaA" 80px
+            "areaB" 80px
+            "areaC" 80px
+            "areaD" 80px
+            "areaE" 80px
+            "areaF" 80px / 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer {
+        grid-template-columns: 1fr;
+    }
+    
+    .auto-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .responsive-grid {
+        grid-template-columns: 1fr;
+    }
+}
