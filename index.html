@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПР №3: Селекторы, Каскад, Наследование</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="page-body">
+
+    <header id="site-header" class="main-layout-item">
+        <h1 id="site-title">PhotoLife CSS Demo</h1>
+        <p>Изучение специфичности CSS</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li class="nav-item current-page"><a href="#">Главная</a></li>
+            <li class="nav-item"><a href="#">Уроки</a></li>
+            <li class="nav-item important"><a href="#">Обзоры</a></li>
+        </ul>
+        <button class="nav-button">Поиск</button>
+    </nav>
+    
+    <main class="content-area main-layout-item">
+        
+        <section class="latest-posts">
+            <h2>Последние статьи</h2>
+            
+            <article class="post featured-post first-post">
+                <h3>Секрет хорошего портрета</h3>
+                <p>Опубликовано <time datetime="2025-01-01">1 янв</time></p>
+                <a href="#" class="read-more">Читать</a>
+            </article>
+            
+            <article class="post">
+                <h3>Обзор новой камеры</h3>
+                <p>Опубликовано <time datetime="2025-01-05">5 янв</time></p>
+                <a href="/visited-link" class="read-more">Читать</a>
+            </article>
+            
+            <article class="post">
+                <h3>5 советов по обработке</h3>
+                <p>Опубликовано <time datetime="2025-01-10">10 янв</time></p>
+                <a href="#" class="read-more">Читать</a>
+            </article>
+            
+        </section>
+
+        <section class="inherited-styles">
+            <h2>Демонстрация Наследования</h2>
+            <p>Этот абзац наследует цвет и размер шрифта.</p>
+            <a href="#">И эта ссылка тоже!</a>
+        </section>
+
+    </main>
+    
+    <footer id="site-footer" class="main-layout-item">
+        <p style="color: purple; font-style: italic;">&copy; 2025. Демонстрация инлайн-стиля (наивысший приоритет).</p>
+    </footer>
+
+</body>
+</html>
