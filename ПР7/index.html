@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Форма регистрации</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Регистрация</h1>
+    <form id="registrationForm" novalidate>
+      <fieldset>
+        <legend>Личные данные</legend>
+
+        <div class="form-group">
+          <label for="fullName">Полное имя</label>
+          <input type="text" id="fullName" name="fullName" required minlength="2" />
+          <span class="error-message" id="fullNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <span class="error-message" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" pattern="[\+]?[0-9\s\-\(\)]{10,}" />
+          <span class="error-message" id="phoneError"></span>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Пароль</legend>
+
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input type="password" id="password" name="password" required minlength="6" />
+          <span class="error-message" id="passwordError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Подтвердите пароль</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required />
+          <span class="error-message" id="confirmPasswordError"></span>
+        </div>
+      </fieldset>
+
+      <div class="form-group">
+        <button type="submit">Зарегистрироваться</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
