@@ -1,0 +1,74 @@
+/* Планшетная версия (768px - 1024px) */
+
+@media (max-width: 1024px) {
+    .nav {
+        gap: 1rem;
+    }
+
+    .nav-list a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Мобильная версия (до 768px) */
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav.active {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+        background-color: #444;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+    }
+
+    .hero p {
+        font-size: clamp(0.9rem, 5vw, 1.1rem);
+    }
+}
+
+/* Очень маленькие экраны (<480px) */
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .nav-list a {
+        padding: 0.5rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .feature-card {
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.2rem, 10vw, 2rem);
+    }
+}
