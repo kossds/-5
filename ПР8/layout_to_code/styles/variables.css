@@ -1,0 +1,31 @@
+:root {
+    /* Colors */
+    --color-background: #FFFFFF;
+    --color-sidebar-bg: #F8F9FA;
+    --color-primary-text: #212529;
+    --color-secondary-text: #495057;
+    --color-meta-text: #6C757D;
+    --color-border: #DEE2E6;
+    --color-timeline-dot: #ADB5BD;
+
+    /* Typography */
+    --font-family-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    
+    --font-size-name: 48px;
+    --font-size-section-title: 24px;
+    --font-size-job-title: 20px;
+    --font-size-title: 18px;
+    --font-size-body: 16px;
+    --font-size-meta: 14px;
+
+    --font-weight-bold: 700;
+    --font-weight-regular: 400;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 60px;
+}
