@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="main-header">
+        <h1>Практическая работа: Манипуляции DOM</h1>
+    </header>
+
+    <main>
+        <!-- Секция для заданий 1 и 2 -->
+        <section id="target1" class="container">
+            <h2>Создание элементов</h2>
+            <button onclick="createCard('Тестовая карточка', 'Это содержимое карточки')">
+                Создать карточку
+            </button>
+            <button onclick="createList(['Первый элемент', 'Второй элемент', 'Третий элемент'])">
+                Создать список
+            </button>
+        </section>
+
+        <!-- Секция для навигации по DOM -->
+        <section class="container">
+            <h2>Навигация по DOM</h2>
+            <div id="parent-element" style="background-color: #f0f0f0; padding: 10px;">
+                <div class="child">Обычный элемент 1</div>
+                <div class="child special">Специальный элемент</div>
+                <div class="child">Обычный элемент 2</div>
+            </div>
+            <button onclick="console.log('Количество детей:', countChildren())">
+                Посчитать детей (смотри консоль)
+            </button>
+            <button onclick="console.log('Текст специального элемента:', findSpecialChild())">
+                Найти специальный элемент (смотри консоль)
+            </button>
+            <button onclick="console.log('Цвет фона родителя:', getParentBackground())">
+                Получить цвет фона родителя (смотри консоль)
+            </button>
+        </section>
+
+        <!-- Секция для работы со стилями -->
+        <section class="container">
+            <h2>Работа со стилями</h2>
+            <div id="style-target" class="style-box">
+                Элемент для стилизации
+            </div>
+            <button id="toggle-style">Переключить стиль</button>
+            <button onclick="changeHeaderColor()">Изменить цвет заголовка</button>
+            <button onclick="animateElement()">Запустить анимацию</button>
+        </section>
+
+        <!-- Секция для обработки событий -->
+        <section class="container">
+            <h2>Обработка событий</h2>
+            <button id="click-btn">Кликни меня!</button>
+            <p>Счетчик кликов: <span id="click-counter">0</span></p>
+            
+            <input type="text" id="text-input" placeholder="Введите текст...">
+            <p>Отображение ввода: <span id="input-display"></span></p>
+        </section>
+
+        <!-- Секция для динамических списков -->
+        <section class="container">
+            <h2>Динамические списки</h2>
+            <input type="text" id="item-input" placeholder="Введите новый элемент">
+            <button id="add-btn">Добавить в список</button>
+            <button id="clear-btn">Очистить список</button>
+            <ul id="dynamic-list"></ul>
+        </section>
+
+        <!-- Секция для работы с формами -->
+        <section class="container">
+            <h2>Работа с формами</h2>
+            <form id="user-form">
+                <div>
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="age">Возраст:</label>
+                    <input type="number" id="age" name="age" min="1" max="120" required>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+            <div id="form-output"></div>
+        </section>
+    </main>
+
+    <script src="dom-tasks.js"></script>
+    <script src="dom-tests.js"></script>
+</body>
+</html>
