@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript: обработка событий</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Добавим базовые стили на случай если styles.css не загрузится */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .task {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .output {
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            min-height: 20px;
+            border-left: 4px solid #007cba;
+        }
+        .color-box {
+            width: 200px;
+            height: 100px;
+            background: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 10px 0;
+        }
+        #item-list {
+            list-style: none;
+        }
+        .item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+        .item.selected {
+            background: #007cba;
+            color: white;
+        }
+        .delete {
+            float: right;
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Практическая работа: Обработка событий JavaScript</h1>
+        
+        <!-- Задание 1: Базовые обработчики -->
+        <section class="task">
+            <h2>1. Базовые обработчики событий</h2>
+            <button id="basic-btn">Кликни меня!</button>
+            <div id="basic-output" class="output">Здесь будет информация о событии</div>
+            
+            <div id="color-box" class="color-box">
+                Наведи курсор
+            </div>
+            <div id="mouse-output" class="output">Здесь будут координаты мыши</div>
+        </section>
+
+        <!-- Задание 2: События клавиатуры -->
+        <section class="task">
+            <h2>2. События клавиатуры</h2>
+            <input type="text" id="key-input" placeholder="Введите текст...">
+            <div id="key-output" class="output">Информация о нажатых клавишах появится здесь</div>
+        </section>
+
+        <!-- Задание 3: Делегирование событий -->
+        <section class="task">
+            <h2>3. Делегирование событий</h2>
+            <button id="add-item-btn">Добавить элемент</button>
+            <ul id="item-list">
+                <li class="item" data-id="1">Элемент 1 <span class="delete">×</span></li>
+                <li class="item" data-id="2">Элемент 2 <span class="delete">×</span></li>
+                <li class="item" data-id="3">Элемент 3 <span class="delete">×</span></li>
+            </ul>
+            <div id="delegation-output" class="output">Информация о выбранных элементах</div>
+        </section>
+
+        <!-- Задание 4: Предотвращение поведения -->
+        <section class="task">
+            <h2>4. Предотвращение поведения</h2>
+            <a href="https://google.com" id="prevent-link" class="prevent-link">
+                Эта ссылка не работает (кликните чтобы проверить)
+            </a>
+            <form id="prevent-form">
+                <input type="text" id="form-input" placeholder="Введите данные" required>
+                <button type="submit">Отправить форму</button>
+            </form>
+            <div id="prevention-output" class="output">Результат предотвращения поведения</div>
+        </section>
+
+        <!-- Задание 5: Кастомные события -->
+        <section class="task">
+            <h2>5. Кастомные события</h2>
+            <button id="trigger-custom">Запустить кастомное событие</button>
+            <button id="multiple-listeners">Тест нескольких обработчиков</button>
+            <div id="custom-output" class="output">Результат кастомных событий</div>
+        </section>
+
+        <!-- Задание 6: События загрузки -->
+        <section class="task">
+            <h2>6. События загрузки и ошибок</h2>
+            <button id="load-image">Загрузить изображение</button>
+            <button id="load-error">Симулировать ошибку</button>
+            <div id="image-container"></div>
+            <div id="loading-output" class="output">Статус загрузки изображения</div>
+        </section>
+
+        <!-- Задание 7: Таймеры -->
+        <section class="task">
+            <h2>7. Таймеры и асинхронные события</h2>
+            <button id="start-timer">Старт таймера</button>
+            <button id="stop-timer">Стоп таймера</button>
+            <div id="timer-output" class="output">Таймер: 0 сек</div>
+            
+            <button id="debounce-btn">Тест Debounce</button>
+            <button id="throttle-btn">Тест Throttle</button>
+            <div id="async-output" class="output">Результаты тестов debounce и throttle</div>
+        </section>
+    </div>
+
+    <script>
+        // Простая проверка загрузки скриптов
+        console.log('HTML загружен, начинаем загрузку скриптов...');
+        
+        // Функция для загрузки скрипта с обработкой ошибок
+        function loadScript(src, onError) {
+            const script = document.createElement('script');
+            script.src = src;
+            script.onerror = onError;
+            script.onload = () => console.log('Загружен: ' + src);
+            document.head.appendChild(script);
+        }
+        
+        // Загружаем скрипты с обработкой ошибок
+        loadScript('events-tasks.js', function() {
+            console.error('Ошибка загрузки events-tasks.js');
+            document.body.innerHTML += '<p style="color: red;">Ошибка: файл events-tasks.js не найден</p>';
+        });
+        
+        loadScript('events-tests.js', function() {
+            console.error('Ошибка загрузки events-tests.js');
+            document.body.innerHTML += '<p style="color: red;">Ошибка: файл events-tests.js не найден</p>';
+        });
+    </script>
+</body>
+</html>
