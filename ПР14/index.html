@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API - Практическая работа</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fetch API - Практическая работа</h1>
+        
+        <!-- Часть 1: GET запросы -->
+        <section class="section">
+            <h2>1. Базовые GET запросы</h2>
+            <div class="button-group">
+                <button id="fetch-get">Простой GET</button>
+                <button id="fetch-json">JSON данные</button>
+                <button id="fetch-error">Ошибка</button>
+            </div>
+            <div id="get-output" class="output"></div>
+            <div id="get-data" class="output"></div>
+        </section>
+
+        <!-- Часть 2: CRUD операции -->
+        <section class="section">
+            <h2>2. CRUD операции</h2>
+            <div class="button-group">
+                <button id="fetch-post">POST</button>
+                <button id="fetch-put">PUT</button>
+                <button id="fetch-patch">PATCH</button>
+                <button id="fetch-delete">DELETE</button>
+            </div>
+            <div id="crud-output" class="output"></div>
+        </section>
+
+        <!-- Часть 3: Заголовки и параметры -->
+        <section class="section">
+            <h2>3. Заголовки и параметры</h2>
+            <div class="button-group">
+                <button id="fetch-headers">Кастомные заголовки</button>
+                <button id="fetch-auth">Авторизация</button>
+                <button id="fetch-params">Параметры</button>
+                <button id="fetch-timeout">Таймаут</button>
+            </div>
+            <div id="headers-output" class="output"></div>
+            <div id="auth-output" class="output"></div>
+            <div id="params-output" class="output"></div>
+            <div id="timeout-output" class="output"></div>
+        </section>
+
+        <!-- Часть 4: Обработка ответов -->
+        <section class="section">
+            <h2>4. Обработка ответов</h2>
+            <div class="button-group">
+                <button id="fetch-status">Проверка статуса</button>
+                <button id="fetch-read-headers">Чтение заголовков</button>
+                <button id="fetch-blob">BLOB данные</button>
+                <button id="fetch-formdata">FormData</button>
+            </div>
+            <div id="status-output" class="output"></div>
+            <div id="response-output" class="output"></div>
+            <div id="blob-output" class="output"></div>
+            <div id="formdata-output" class="output"></div>
+        </section>
+
+        <!-- Часть 5: Обработка ошибок -->
+        <section class="section">
+            <h2>5. Обработка ошибок</h2>
+            <div class="button-group">
+                <button id="fetch-network-error">Сетевая ошибка</button>
+                <button id="fetch-http-error">HTTP ошибка</button>
+                <button id="fetch-abort">Отмена запроса</button>
+                <button id="fetch-retry">Повторные попытки</button>
+            </div>
+            <div id="network-error-output" class="output"></div>
+            <div id="http-error-output" class="output"></div>
+            <div id="abort-output" class="output"></div>
+            <div id="retry-output" class="output"></div>
+        </section>
+
+        <!-- Часть 6: Параллельные запросы -->
+        <section class="section">
+            <h2>6. Параллельные запросы</h2>
+            <div class="button-group">
+                <button id="fetch-promise-all">Promise.all</button>
+                <button id="fetch-promise-race">Promise.race</button>
+                <button id="fetch-sequential">Последовательные</button>
+            </div>
+            <div id="promise-all-output" class="output"></div>
+            <div id="promise-race-output" class="output"></div>
+            <div id="sequential-output" class="output"></div>
+        </section>
+
+        <!-- Часть 7: Реальные сценарии -->
+        <section class="section">
+            <h2>7. Реальные сценарии</h2>
+            <div class="button-group">
+                <button id="fetch-user-posts">Пользователь + посты</button>
+                <button id="fetch-search">Поиск</button>
+                <button id="fetch-file-upload">Загрузка файла</button>
+                <button id="fetch-cache">Кэширование</button>
+            </div>
+            <div id="user-posts-output" class="output"></div>
+            <div id="search-output" class="output"></div>
+            <div id="file-upload-output" class="output"></div>
+            <div id="cache-output" class="output"></div>
+        </section>
+    </div>
+
+    <script src="fetch_tasks.js"></script>
+    <script src="fetch_tests.js"></script>
+</body>
+</html>
