@@ -1,0 +1,5 @@
+# 1. Удаление книги
+curl -X DELETE "http://localhost:3000/api/books/1"
+
+# 2. Попытка удаления несуществующей книги
+curl -X DELETE "http://localhost:3000/api/books/999"

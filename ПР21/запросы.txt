@@ -1,0 +1,14 @@
+# 1. Получение всех книг
+curl -X GET "http://localhost:3000/api/books"
+
+# 2. Получение книг с фильтрацией по автору
+curl -X GET "http://localhost:3000/api/books?author=Толстой"
+
+# 3. Получение книг с пагинацией
+curl -X GET "http://localhost:3000/api/books?page=1&limit=5"
+
+# 4. Получение книги по ID
+curl -X GET "http://localhost:3000/api/books/1"
+
+# 5. Комплексная фильтрация
+curl -X GET "http://localhost:3000/api/books?author=Достоевский&genre=роман&page=1&limit=10"

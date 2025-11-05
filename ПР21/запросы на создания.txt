@@ -1,0 +1,25 @@
+# 1. Создание новой книги
+curl -X POST "http://localhost:3000/api/books" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Мастер и Маргарита",
+    "author": "Михаил Булгаков",
+    "genre": "Роман",
+    "year": 1966,
+    "isbn": "978-5-17-090123-6"
+  }'
+
+# 2. Создание книги с минимальными данными
+curl -X POST "http://localhost:3000/api/books" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "1984",
+    "author": "Джордж Оруэлл"
+  }'
+
+# 3. Некорректный запрос (отсутствует автор)
+curl -X POST "http://localhost:3000/api/books" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Без автора"
+  }'

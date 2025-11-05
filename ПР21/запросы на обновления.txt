@@ -1,0 +1,25 @@
+# 1. Полное обновление книги (PUT)
+curl -X PUT "http://localhost:3000/api/books/1" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Война и мир (обновленное издание)",
+    "author": "Лев Толстой",
+    "genre": "Классический роман",
+    "year": 1869,
+    "isbn": "978-5-699-12014-8"
+  }'
+
+# 2. Частичное обновление (PATCH) - только жанр
+curl -X PATCH "http://localhost:3000/api/books/2" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "genre": "Философский роман"
+  }'
+
+# 3. Частичное обновление нескольких полей
+curl -X PATCH "http://localhost:3000/api/books/2" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "genre": "Психологический роман",
+    "year": 1867
+  }'

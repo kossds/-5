@@ -1,0 +1,25 @@
+{
+  "name": "rest-api-books",
+  "version": "1.0.0",
+  "description": "REST API для управления книгами - Практическая работа №21",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "express",
+    "books"
+  ],
+  "author": "Ваше Имя",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
