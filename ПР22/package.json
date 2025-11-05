@@ -1,0 +1,31 @@
+{
+  "name": "library-sqlite-app",
+  "version": "1.0.0",
+  "description": "Library database application with Node.js and SQLite",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "reset-db": "rm -f database/library.db && node app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sqlite",
+    "sequelize",
+    "library",
+    "api",
+    "crud"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
