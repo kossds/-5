@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестирование API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Тестирование REST API</h1>
+            <p>Интерактивная страница для тестирования endpoints</p>
+        </header>
+
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="client.html" class="active">Тестирование API</a>
+        </nav>
+
+        <div class="controls">
+            <label>Выберите сервер:</label>
+            <select id="serverSelect">
+                <option value="http://localhost:3000">Базовый сервер (порт 3000)</option>
+                <option value="http://localhost:3001">Расширенный сервер (порт 3001)</option>
+            </select>
+        </div>
+
+        <div class="api-tester">
+            <!-- GET All Users -->
+            <div class="endpoint">
+                <h3>GET /api/users</h3>
+                <p>Получить всех пользователей</p>
+                <button onclick="getUsers()">Выполнить запрос</button>
+            </div>
+
+            <!-- GET User by ID -->
+            <div class="endpoint">
+                <h3>GET /api/users/{id}</h3>
+                <p>Получить пользователя по ID</p>
+                <input type="number" id="userId" placeholder="ID пользователя" value="1">
+                <button onclick="getUser()">Выполнить запрос</button>
+            </div>
+
+            <!-- POST Create User -->
+            <div class="endpoint">
+                <h3>POST /api/users</h3>
+                <p>Создать нового пользователя</p>
+                <input type="text" id="userName" placeholder="Имя пользователя" value="Новый пользователь">
+                <input type="email" id="userEmail" placeholder="Email" value="new@example.com">
+                <button onclick="createUser()">Выполнить запрос</button>
+            </div>
+
+            <!-- PUT Update User -->
+            <div class="endpoint">
+                <h3>PUT /api/users/{id}</h3>
+                <p>Обновить пользователя</p>
+                <input type="number" id="updateUserId" placeholder="ID пользователя" value="1">
+                <input type="text" id="updateUserName" placeholder="Новое имя" value="Обновленное имя">
+                <input type="email" id="updateUserEmail" placeholder="Новый email" value="updated@example.com">
+                <button onclick="updateUser()">Выполнить запрос</button>
+            </div>
+
+            <!-- DELETE User -->
+            <div class="endpoint">
+                <h3>DELETE /api/users/{id}</h3>
+                <p>Удалить пользователя</p>
+                <input type="number" id="deleteUserId" placeholder="ID пользователя">
+                <button onclick="deleteUser()">Выполнить запрос</button>
+            </div>
+        </div>
+
+        <div class="response-section">
+            <h3>Ответ сервера:</h3>
+            <pre id="responseOutput">Здесь будет отображен ответ сервера...</pre>
+        </div>
+    </div>
+
+    <script>
+        function getBaseUrl() {
+            return document.getElementById('serverSelect').value;
+        }
+
+        function displayResponse(data) {
+            document.getElementById('responseOutput').textContent = 
+                typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+        }
+
+        async function getUsers() {
+            try {
+                const response = await fetch(`${getBaseUrl()}/api/users`);
+                const data = await response.json();
+                displayResponse(data);
+            } catch (error) {
+                displayResponse(`Ошибка: ${error.message}`);
+            }
+        }
+
+        async function getUser() {
+            const userId = document.getElementById('userId').value;
+            if (!userId) {
+                alert('Введите ID пользователя');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/api/users/${userId}`);
+                const data = await response.json();
+                displayResponse(data);
+            } catch (error) {
+                displayResponse(`Ошибка: ${error.message}`);
+            }
+        }
+
+        async function createUser() {
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+
+            if (!name || !email) {
+                alert('Заполните все поля');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/api/users`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email })
+                });
+                const data = await response.json();
+                displayResponse(data);
+            } catch (error) {
+                displayResponse(`Ошибка: ${error.message}`);
+            }
+        }
+
+        async function updateUser() {
+            const userId = document.getElementById('updateUserId').value;
+            const name = document.getElementById('updateUserName').value;
+            const email = document.getElementById('updateUserEmail').value;
+
+            if (!userId) {
+                alert('Введите ID пользователя');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/api/users/${userId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email })
+                });
+                const data = await response.json();
+                displayResponse(data);
+            } catch (error) {
+                displayResponse(`Ошибка: ${error.message}`);
+            }
+        }
+
+        async function deleteUser() {
+            const userId = document.getElementById('deleteUserId').value;
+            if (!userId) {
+                alert('Введите ID пользователя');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${getBaseUrl()}/api/users/${userId}`, {
+                    method: 'DELETE'
+                });
+                const data = await response.json();
+                displayResponse(data);
+            } catch (error) {
+                displayResponse(`Ошибка: ${error.message}`);
+            }
+        }
+    </script>
+</body>
+</html>

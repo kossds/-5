@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Server - Главная</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Node.js Сервер</h1>
+            <p>Практическая работа №19</p>
+        </header>
+
+        <nav>
+            <a href="index.html" class="active">Главная</a>
+            <a href="client.html">Тестирование API</a>
+        </nav>
+
+        <main>
+            <section class="info">
+                <h2>О проекте</h2>
+                <p>Этот проект демонстрирует создание HTTP-сервера на Node.js с обработкой различных типов запросов и маршрутов.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <h3>Основные возможности</h3>
+                        <ul>
+                            <li>REST API для управления пользователями</li>
+                            <li>Поддержка методов GET, POST, PUT, DELETE</li>
+                            <li>Middleware для логирования и парсинга JSON</li>
+                            <li>Обслуживание статических файлов</li>
+                            <li>CORS поддержка</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>API Endpoints</h3>
+                        <ul>
+                            <li><code>GET /api/users</code> - все пользователи</li>
+                            <li><code>GET /api/users/:id</code> - пользователь по ID</li>
+                            <li><code>POST /api/users</code> - создать пользователя</li>
+                            <li><code>PUT /api/users/:id</code> - обновить пользователя</li>
+                            <li><code>DELETE /api/users/:id</code> - удалить пользователя</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="servers">
+                <h2>Доступные серверы</h2>
+                <div class="server-cards">
+                    <div class="server-card">
+                        <h3>Базовый сервер</h3>
+                        <p>Порт: 3000</p>
+                        <a href="http://localhost:3000" target="_blank" class="btn">Перейти</a>
+                    </div>
+                    <div class="server-card">
+                        <h3>Расширенный сервер</h3>
+                        <p>Порт: 3001</p>
+                        <a href="http://localhost:3001" target="_blank" class="btn">Перейти</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

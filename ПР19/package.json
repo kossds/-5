@@ -1,0 +1,14 @@
+{
+  "name": "pr19-nodejs-server",
+  "version": "1.0.0",
+  "description": "Практическая работа №19: Создание простого сервера на Node.js",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/advanced-server.js",
+    "test": "echo \"Запустите client.html в браузере или используйте Postman\""
+  },
+  "keywords": ["nodejs", "http", "server", "rest-api"],
+  "author": "Ваше Имя",
+  "license": "MIT"
+}
