@@ -1,0 +1,118 @@
+{
+  "info": {
+    "name": "PR20 Express Routing",
+    "description": "Коллекция запросов для тестирования Express.js роутинга",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Главная страница",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/"
+      }
+    },
+    {
+      "name": "Пользователи",
+      "item": [
+        {
+          "name": "Получить всех пользователей",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:3000/api/users"
+          }
+        },
+        {
+          "name": "Получить пользователя по ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:3000/api/users/1"
+          }
+        },
+        {
+          "name": "Создать нового пользователя",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Алексей Алексеев\",\n  \"email\": \"alexey@example.com\",\n  \"age\": 35\n}"
+            },
+            "url": "http://localhost:3000/api/users"
+          }
+        },
+        {
+          "name": "Обновить пользователя",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Иван Обновленный\",\n  \"email\": \"ivan-new@example.com\",\n  \"age\": 26\n}"
+            },
+            "url": "http://localhost:3000/api/users/1"
+          }
+        },
+        {
+          "name": "Удалить пользователя",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:3000/api/users/3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Товары",
+      "item": [
+        {
+          "name": "Получить все товары",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:3000/api/products"
+          }
+        },
+        {
+          "name": "Фильтрация товаров",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:3000/api/products?category=Электроника&inStock=true"
+          }
+        },
+        {
+          "name": "Создать новый товар",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Планшет\",\n  \"price\": 25000,\n  \"category\": \"Электроника\",\n  \"inStock\": true\n}"
+            },
+            "url": "http://localhost:3000/api/products"
+          }
+        }
+      ]
+    }
+  ]
+}

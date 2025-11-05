@@ -1,0 +1,13 @@
+{
+  "name": "pr20-express-routing",
+  "version": "1.0.0",
+  "description": "Практическая работа по Express.js роутингу",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
