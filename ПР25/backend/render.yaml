@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: your-app-backend
+    runtime: node
+    buildCommand: "npm install && npm run migrate"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SQLITE_DB_PATH
+        value: /var/data/sqlite.prod.db
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        fromDatabase:
+          name: your-app-frontend
+          property: domain
+    disk:
+      name: sqlite-data
+      mountPath: /var/data
+      sizeGB: 1
